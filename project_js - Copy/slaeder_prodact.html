@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color:rgb(27, 22, 60)
+        }
+
+        .slider {
+            position: relative;
+            max-width: 600px; /* حداکثر عرض اسلایدر */
+            margin: auto; /* مرکز کردن اسلایدر */
+            overflow: hidden; /* مخفی کردن تصاویر خارج از اسلایدر */
+            border-radius: 8px; /* گوشه‌های گرد */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* سایه اسلایدر */
+        }
+
+        .slides {
+            display: flex; /* نمایش افقی تصاویر */
+            animation: slide 12s infinite; /* انیمیشن اسلاید */
+        }
+
+        .slide {
+            min-width: 50%; /* عرض هر تصویر (دو تصویر در هر صفحه) */
+            box-sizing: border-box; /* محاسبه عرض شامل padding */
+            padding: 10px; /* فاصله داخلی */
+        }
+
+        .slide img {
+            width: 100%; /* پر کردن عرض تصویر */
+            border-radius: 8px; /* گوشه‌های گرد */
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33.33% { transform: translateX(0); }
+            41.67% { transform: translateX(-100%); }
+            75% { transform: translateX(-100%); }
+            83.33% { transform: translateX(-200%); }
+            100% { transform: translateX(-200%); }
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: white;">The most popular</h1>
+    
+    <div class="slider">
+        <div class="slides">
+            <!-- صفحه اول -->
+            <div class="slide"><img src="./image/11.jpg" alt="Image 1"></div>
+            <div class="slide"><img src="./image/12.jpg" alt="Image 2"></div>
+            <!-- صفحه دوم -->
+            <div class="slide"><img src="./image/13.jpg" alt="Image 3"></div>
+            <div class="slide"><img src="./image/14.jpg" alt="Image 4"></div>
+            <!-- صفحه سوم -->
+            <div class="slide"><img src="./image/3.jpg" alt="Image 5"></div>
+            <div class="slide"><img src="./image/16.jpg" alt="Image 6"></div>
+        </div>
+    </div>
+</body>
+</html>

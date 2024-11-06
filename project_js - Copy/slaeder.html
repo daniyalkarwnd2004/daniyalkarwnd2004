@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* تنظیمات پایه */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* جلوگیری از پیمایش افقی */
+        }
+
+        /* استایل اسلایدر */
+        .slideshow {
+            margin-top: 40px;
+            width: 100vw; /* عرض کامل صفحه */
+            height: 350px; /* ارتفاع کامل صفحه */
+            position: relative; /* برای موقعیت‌دهی مطلق تصاویر */
+            overflow: hidden; /* مخفی کردن تصاویر خارج از اسلایدر */
+        }
+
+        .slides img {
+            width: 100%; /* پر کردن کل عرض اسلایدر */
+            height: 100%; /* پر کردن کل ارتفاع اسلایدر */
+            object-fit: cover; /* متناسب‌سازی تصویر */
+            opacity: 0; /* پنهان کردن تمام تصاویر به جز تصویر فعال */
+            transition: opacity 1s ease; /* انیمیشن تغییر اپاسیتی */
+            position: absolute; /* موقعیت‌دهی مطلق */
+            top: 0; /* قرار دادن در بالای اسلایدر */
+            left: 0; /* قرار دادن در سمت چپ اسلایدر */
+        }
+
+        /* نمایش تصویر فعال */
+        .slides img.active {
+            opacity: 1; /* نمایش تصویر فعال */
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow">
+        <div class="slides">
+            <!-- تصاویر نمونه با لینک مستقیم -->
+            <img src="./image/slaeder1.jpg" class="active">
+            <img src="./image/slaeder2.jpg">
+            <img src="./image/slider3.jpg">
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0; // شاخص تصویر فعلی
+        const slides = document.querySelectorAll('.slides img'); // انتخاب همه تصاویر
+        
+        // تغییر تصویر هر چند ثانیه
+        setInterval(() => {
+            slides[currentIndex].classList.remove('active'); // حذف کلاس فعال از تصویر فعلی
+            currentIndex = (currentIndex + 1) % slides.length; // به تصویر بعدی بروید
+            slides[currentIndex].classList.add('active'); // افزودن کلاس فعال به تصویر جدید
+        }, 3000); // تغییر هر ۳ ثانیه
+    </script>
+</body>
+</html>
